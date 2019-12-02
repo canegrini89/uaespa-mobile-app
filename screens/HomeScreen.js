@@ -9,6 +9,10 @@ const HomeScreen = () => {
   );
 };
 
+HomeScreen.navigationOptions = {
+  header: null,
+};
+
 export default HomeScreen;
 
 HomeScreen.navigationOptions = {
