@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: '#7B7A7A',
     height: 1,
-    top: 565,
+    top: 555,
     position: 'absolute',
   },
   orWith: {
