@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Constants from 'expo-constants';
 
 import Navigation from './navigation';
 
@@ -14,7 +15,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center'
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    marginTop: Constants.statusBarHeight
   }
 });
