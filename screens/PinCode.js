@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, View, Text } from 'react-native';
 
 import ButtonGradient from '../components/ButtonGradient';
 import InputText from '../components/InputText'
 
-const ForgetPassword = props => {
+const ForgetPasswordSms = props => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -14,30 +14,24 @@ const ForgetPassword = props => {
         </Text>
       </View>
       <View style={styles.inputContainer}>
-        <InputText name='EMAIL ID' />
+        <InputText name='ENTER PIN CODE' />
       </View>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('ForgetPasswordSms')}
-      >
-        <Text style={styles.resetNumber}>
-            Reset password by Phone Number?
-        </Text>
-      </TouchableOpacity>
       <View style={styles.buttonContainer}>
         <ButtonGradient
           colors={['#FE77D6', '#FB4282', '#FF5959']}
-          text='RESET'
+          text='SUBMIT'
+          onPress={() => props.navigation.navigate('ChangePassword')}
         />
       </View>
     </View>
   );
 };
 
-ForgetPassword.navigationOptions = {
+ForgetPasswordSms.navigationOptions = {
   header: null
 };
 
-export default ForgetPassword;
+export default ForgetPasswordSms;
 
 const styles = StyleSheet.create({
   container: {
@@ -48,11 +42,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: '80%',
   },  
-  resetNumber: {
-    color: '#B7B4B4',
-    fontSize: 18,
-    marginTop: 16,
-  },
   forgetText: {
     fontSize: 30,
     fontWeight: '600',

@@ -52,7 +52,8 @@ input: {
   paddingLeft: 0,
   color: '#424242',
   fontWeight: '600',
-  textAlign: 'center'
+  textAlign: 'center',
+  width: '100%'
 },
 text: {
   textAlign: 'center',
