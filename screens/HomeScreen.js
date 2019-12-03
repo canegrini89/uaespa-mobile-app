@@ -14,7 +14,3 @@ HomeScreen.navigationOptions = {
 };
 
 export default HomeScreen;
-
-HomeScreen.navigationOptions = {
-  header: null
-};

@@ -51,6 +51,9 @@ input: {
   flex: 1,
   paddingLeft: 0,
   color: '#424242',
+  fontWeight: '600',
+  textAlign: 'center',
+  width: '100%'
 },
 text: {
   textAlign: 'center',

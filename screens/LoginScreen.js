@@ -3,14 +3,15 @@ import {
   Image,
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import Divider from '../components/Divider';
 import ButtonGradient from '../components/ButtonGradient'
 import SocialAuthButton from '../components/SocialAuthButton'
 import InputText from '../components/InputText'
 
-const LoginScreen = () => {
+const LoginScreen = props => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -33,9 +34,13 @@ const LoginScreen = () => {
         <SocialAuthButton text='FACEBOOK' logo={require('../assets/facebook.png')} color='blue'/>
         <SocialAuthButton text='TWITTER' logo={require('../assets/twitter.png')} color='lightBlue' />
       </View>
-      <Text style={styles.text}>
-        Forget your password? RESET NOW
-      </Text>
+      <TouchableOpacity 
+        onPress={() => props.navigation.navigate('ForgetPassword')}
+      >
+        <Text style={styles.text}>
+          Forget your password? RESET NOW
+        </Text>
+      </TouchableOpacity>
   </View>
   );
 }
