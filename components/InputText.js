@@ -10,7 +10,6 @@ import {
 
 const InputText = props => {
   const [secureText, setSecureText] = useState(true);
-
   return (
     <View>
       <Text style={styles.text}>{props.name}</Text>
@@ -52,8 +51,8 @@ const styles = StyleSheet.create({
     color: '#424242'
   },
   inputText: {
-    fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 20
   },
   text: {
     textAlign: 'center',
