@@ -15,7 +15,7 @@ const screens = createStackNavigator(
     ForgetPasswordSms,
     PinCode,
     ForgetPassword,
-    SplashScreen,
+    SplashScreen
   },
   {
     defaultNavigationOptions: {

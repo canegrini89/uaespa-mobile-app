@@ -5,7 +5,11 @@ import ButtonGradient from '../components/ButtonGradient';
 import SocialAuthButton from '../components/SocialAuthButton';
 import Divider from '../components/Divider';
 
+import { theme } from '../constants';
+
 const SplashScreen = props => {
+  const { primary, secondary, tertiary } = theme.colors;
+
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -17,12 +21,12 @@ const SplashScreen = props => {
       </View>
       <View style={styles.buttonContainer}>
         <ButtonGradient
-          colors={['#FE77D6', '#FB4282', '#FF5959']}
+          colors={[primary, secondary, tertiary]}
           text='LOGIN'
           onPress={() => props.navigation.navigate('LoginScreen')}
         />
         <ButtonGradient
-          colors={['#FE77D6', '#FB4282', '#FF5959']}
+          colors={[primary, secondary, tertiary]}
           text='REGISTER'
         />
         <ButtonGradient
