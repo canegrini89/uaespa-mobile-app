@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
+import { Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import ButtonGradient from '../components/ButtonGradient';
 import SocialAuthButton from '../components/SocialAuthButton';
@@ -8,7 +8,7 @@ import InputText from './../components/InputText';
 
 import { theme } from '../constants';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const { primary, secondary, tertiary, blue, lightBlue } = theme.colors;
 
   return (
@@ -47,6 +47,14 @@ const LoginScreen = () => {
             logo={require('../assets/twitter.png')}
             color={lightBlue}
           />
+        </View>
+        <View style={{ ...styles.rowContainer, justifyContent: 'center' }}>
+          <Text style={styles.bottomText}>Forget your password? </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ForgetPasswordScreen')}
+          >
+            <Text style={styles.bottomText}>RESET NOW</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -101,5 +109,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     paddingHorizontal: theme.sizes.base
+  },
+  bottomText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: theme.sizes.h3
   }
 });

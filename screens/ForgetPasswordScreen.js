@@ -30,7 +30,7 @@ const ForgetPasswordScreen = ({ navigation }) => {
         colors={[primary, secondary, tertiary]}
         text='RESET'
         style={{ marginTop: 20 }}
-        onPress={() => navigation.navigate('ChangePassword')}
+        onPress={() => navigation.navigate('PinCode')}
       />
     </KeyboardAvoidingView>
   );
