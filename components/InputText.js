@@ -7,21 +7,27 @@ import {
   TouchableOpacity,
   StyleSheet
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-const InputText = props => {
+const InputText = ({ type, icon, name }) => {
   const [secureText, setSecureText] = useState(true);
   return (
-    <View>
-      <Text style={styles.text}>{props.name}</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>{name}</Text>
       <View style={styles.inputCont}>
         <TextInput
-          style={[styles.input, styles.inputText]}
-          type={props.type}
-          secureTextEntry={props.type === 'password' ? secureText : false}
+          style={[styles.input]}
+          type={type}
+          secureTextEntry={type === 'password' ? secureText : false}
         />
-        <TouchableOpacity onPress={() => setSecureText(!secureText)}>
-          <Image source={props.icon} style={styles.icon} />
-        </TouchableOpacity>
+        {type === 'password' && (
+          <TouchableOpacity
+            onPress={() => setSecureText(!secureText)}
+            style={styles.icon}
+          >
+            <Ionicons name='md-eye' size={32} color='black' />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -30,35 +36,41 @@ const InputText = props => {
 export default InputText;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginHorizontal: 5,
+    width: '100%'
+  },
   inputCont: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     borderRadius: 50,
     borderColor: '#000',
     borderWidth: 1,
     height: 53,
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingVertical: 5
   },
   icon: {
-    marginRight: 10,
-    padding: 5,
-    width: 30,
-    height: 30
+    flex: 3,
+    position: 'absolute',
+    right: 10
   },
   input: {
     flex: 1,
-    paddingLeft: 0,
     color: '#424242',
     fontWeight: '600',
     textAlign: 'center',
-    width: '100%'
+    width: '100%',
+    fontSize: 20
   },
   text: {
     textAlign: 'center',
-    marginBottom: 2,
+    marginBottom: 6,
     marginTop: 8,
     fontWeight: '800',
     color: '#FF5959',
-    fontSize: 18
+    fontSize: 18,
+    textTransform: 'uppercase'
   }
 });

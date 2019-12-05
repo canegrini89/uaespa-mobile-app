@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const ButtonGradient = ({ colors, text, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={{ width: '100%' }}>
       <LinearGradient
         colors={colors}
         start={[0.0, 0.5]}
@@ -21,12 +21,12 @@ export default ButtonGradient;
 
 const styles = StyleSheet.create({
   button: {
-    padding: 15,
+    paddingVertical: 15,
     alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 60,
-    height: 63,
-    width: 330,
-    marginTop: 28
+    marginTop: 20,
+    width: '100%'
   },
   buttonText: {
     backgroundColor: 'transparent',

@@ -1,81 +1,79 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  KeyboardAvoidingView
+} from 'react-native';
 
 import ButtonGradient from '../components/ButtonGradient';
-import InputText from '../components/InputText'
+import InputText from '../components/InputText';
 
-const ForgetPasswordSms = props => {
+import { theme } from '../constants';
+
+const ForgetPasswordSmss = ({ navigation }) => {
+  const { primary, secondary, tertiary } = theme.colors;
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior='padding'>
       <View style={styles.logoContainer}>
         <Image source={require('../assets/candado.png')} style={styles.logo} />
-        <Text style={styles.forgetText}>
-          FORGET YOUR{"\n"}PASSWORD?
-        </Text>
+        <Text style={styles.forgetText}>FORGET YOUR{'\n'}PASSWORD?</Text>
       </View>
-      <View style={styles.inputContainer}>
-        <InputText name='COUNTRY CODE' />
-        <InputText name='PHONE NUMBER' />
+      <View style={styles.rowContainer}>
+        <InputText name='country code' />
+        <InputText name='phone number' />
       </View>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('ForgetPassword')}
-      >
-        <Text style={styles.resetNumber}>
-            Reset password by Email Address?
-        </Text>
-      </TouchableOpacity>
-      <View style={styles.buttonContainer}>
-        <ButtonGradient
-          colors={['#FE77D6', '#FB4282', '#FF5959']}
-          text='RESET'
-          onPress={() => props.navigation.navigate('PinCode')}
-        />
+      <View style={{ marginBottom: theme.sizes.base }}>
+        <Text style={styles.text}>Reset password by Email Address?</Text>
       </View>
-    </View>
+      <ButtonGradient
+        colors={[primary, secondary, tertiary]}
+        text='RESET'
+        style={{ marginTop: 20 }}
+        onPress={() => navigation.navigate('PinCode')}
+      />
+    </KeyboardAvoidingView>
   );
 };
 
-ForgetPasswordSms.navigationOptions = {
+ForgetPasswordSmss.navigationOptions = {
   header: null
 };
 
-export default ForgetPasswordSms;
+export default ForgetPasswordSmss;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center'
-  },
-  inputContainer: {
-    width: '80%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '75%',
-  },  
-  resetNumber: {
-    color: '#B7B4B4',
-    fontSize: 18,
-    marginTop: 16,
+    alignItems: 'center',
+    backgroundColor: theme.colors.white,
+    paddingHorizontal: theme.sizes.base
   },
   forgetText: {
     fontSize: 30,
     fontWeight: '600',
     flexWrap: 'wrap',
-    textAlign: "center",
-    marginBottom: 30,
-  },
-  buttonContainer: {
-    marginTop: 25,
+    textAlign: 'center'
   },
   logoContainer: {
+    display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 14
+    marginTop: theme.sizes.base * 3
   },
   logo: {
-    marginBottom: 40,
-    marginTop: 50,
-    width: 80,
-    height: 80
+    height: 100,
+    width: 100,
+    marginBottom: theme.sizes.base
   },
+  rowContainer: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  text: {
+    textAlign: 'center',
+    fontSize: theme.sizes.h2,
+    color: theme.colors.gray
+  }
 });

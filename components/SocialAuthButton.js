@@ -1,32 +1,23 @@
-import React from 'react'
-import {
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Image
-} from 'react-native'
-
+import React from 'react';
+import { Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 // set blue for Facebook button
 //set lightBlue for Twitter button
 
-const SocialAuthButton = (props) => {
+const SocialAuthButton = ({ color, logo, text, onPress }) => {
   return (
-    <TouchableOpacity style={styles[props.color]} onPress={props.onPress}>
-      <Image
-        source={props.logo}
-        style={styles.logo}
-      />
+    <TouchableOpacity style={styles[color]} onPress={onPress}>
+      <Image source={logo} style={styles.logo} />
       <Text
-        style={props.color === 'blue' ? styles.buttonBlue : styles.buttonLightBlue}>
-        {props.text}
+        style={color === 'blue' ? styles.buttonBlue : styles.buttonLightBlue}
+      >
+        {text}
       </Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default SocialAuthButton
-
+export default SocialAuthButton;
 
 const styles = StyleSheet.create({
   logo: {
@@ -63,6 +54,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#0084b4',
     borderWidth: 1,
-    borderRadius: 50,
+    borderRadius: 50
   }
-})
+});

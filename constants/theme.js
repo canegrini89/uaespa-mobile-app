@@ -1,10 +1,14 @@
 const colors = {
   primary: '#FE77D6',
-  secondary: '##FB4282',
+  secondary: '#FB4282',
   tertiary: '#FF5959',
-  black: '#323643',
   white: '#FFFFFF',
-  gray: '#9DA3B4'
+  black: '#000000',
+  lightBlack: '#393939',
+  gray: '#898989',
+  blue: 'blue',
+  lightBlue: 'lightBlue',
+  bottomText: 'gray'
 };
 
 const sizes = {

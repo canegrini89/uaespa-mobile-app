@@ -1,65 +1,70 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  KeyboardAvoidingView
+} from 'react-native';
 
 import ButtonGradient from '../components/ButtonGradient';
-import InputText from '../components/InputText'
+import InputText from '../components/InputText';
 
-const ForgetPasswordSms = props => {
+import { theme } from '../constants';
+
+const PinCode = ({ navigation }) => {
+  const { primary, secondary, tertiary } = theme.colors;
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior='padding'>
       <View style={styles.logoContainer}>
         <Image source={require('../assets/candado.png')} style={styles.logo} />
-        <Text style={styles.forgetText}>
-          FORGET YOUR{"\n"}PASSWORD?
-        </Text>
+        <Text style={styles.forgetText}>FORGET YOUR{'\n'}PASSWORD?</Text>
       </View>
-      <View style={styles.inputContainer}>
-        <InputText name='ENTER PIN CODE' />
+      <View style={styles.rowContainer}>
+        <InputText name='enter pin code' />
       </View>
-      <View style={styles.buttonContainer}>
-        <ButtonGradient
-          colors={['#FE77D6', '#FB4282', '#FF5959']}
-          text='SUBMIT'
-          onPress={() => props.navigation.navigate('ChangePassword')}
-        />
-      </View>
-    </View>
+      <ButtonGradient
+        colors={[primary, secondary, tertiary]}
+        text='SUBMIT'
+        style={{ marginTop: 20 }}
+        onPress={() => navigation.navigate('ChangePassword')}
+      />
+    </KeyboardAvoidingView>
   );
 };
 
-ForgetPasswordSms.navigationOptions = {
+PinCode.navigationOptions = {
   header: null
 };
 
-export default ForgetPasswordSms;
+export default PinCode;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: theme.colors.white,
+    paddingHorizontal: theme.sizes.base
   },
-  inputContainer: {
-    width: '80%',
-  },  
   forgetText: {
     fontSize: 30,
     fontWeight: '600',
     flexWrap: 'wrap',
-    textAlign: "center",
-    marginBottom: 30,
-  },
-  buttonContainer: {
-    marginTop: 25,
+    textAlign: 'center'
   },
   logoContainer: {
+    display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 14
+    marginTop: theme.sizes.base * 3
   },
   logo: {
-    marginBottom: 40,
-    marginTop: 50,
-    width: 80,
-    height: 80
+    height: 100,
+    width: 100,
+    marginBottom: theme.sizes.base
   },
+  rowContainer: {
+    display: 'flex',
+    flexDirection: 'row'
+  }
 });

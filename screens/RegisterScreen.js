@@ -1,26 +1,28 @@
 import React from 'react';
-import { Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native';
 
-import ButtonGradient from '../components/ButtonGradient';
+import InputText from './../components/InputText';
 import SocialAuthButton from '../components/SocialAuthButton';
 import Divider from '../components/Divider';
-import InputText from './../components/InputText';
+import ButtonGradient from './../components/ButtonGradient';
 
 import { theme } from '../constants';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const LoginScreen = () => {
+const RegisterScreen = ({ navigation }) => {
   const { primary, secondary, tertiary, blue, lightBlue } = theme.colors;
 
   return (
-    <View style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Image source={require('../assets/logo.png')} style={styles.logo} />
-        <Image
-          source={require('../assets/logoFont.png')}
-          style={styles.logoFont}
-        />
-      </View>
+    <KeyboardAvoidingView style={styles.container}>
       <View style={styles.formContainer}>
+        <View style={styles.rowContainer}>
+          <InputText name='first name' />
+          <InputText name='last name' />
+        </View>
+        <View style={styles.rowContainer}>
+          <InputText name='country' />
+          <InputText name='phone number' />
+        </View>
         <View style={styles.rowContainer}>
           <InputText name='email-id' />
         </View>
@@ -30,12 +32,13 @@ const LoginScreen = () => {
         <View style={styles.rowContainer}>
           <ButtonGradient
             colors={[primary, secondary, tertiary]}
-            text='LOGIN'
+            text='REGISTER'
+            onPress={() => navigation.navigate('RegisterScreen')}
           />
         </View>
       </View>
       <View style={styles.bottomContainer}>
-        <Divider text='OR WITH' />
+        <Divider text='OR' />
         <View style={styles.socialCont}>
           <SocialAuthButton
             text='FACEBOOK'
@@ -48,16 +51,22 @@ const LoginScreen = () => {
             color={lightBlue}
           />
         </View>
+        <View style={{ ...styles.rowContainer, justifyContent: 'center' }}>
+          <Text style={styles.bottomText}>Already have and account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+            <Text style={styles.bottomText}>Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
-LoginScreen.navigationOptions = {
+RegisterScreen.navigationOptions = {
   header: null
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -66,16 +75,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around'
   },
+  formContainer: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: theme.sizes.base
+  },
+  rowContainer: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
   socialCont: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: theme.sizes.base * 2
-  },
-  buttonContainer: {
-    display: 'flex',
     justifyContent: 'space-between'
   },
   bottomContainer: {
@@ -83,23 +93,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     height: 180
   },
-  logo: {
-    width: 170,
-    height: 170
-  },
-  logoFont: {
-    width: 350,
-    height: 60,
-    top: 150,
-    position: 'absolute'
-  },
-  rowContainer: {
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  formContainer: {
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    paddingHorizontal: theme.sizes.base
+  bottomText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: theme.sizes.h3
   }
 });

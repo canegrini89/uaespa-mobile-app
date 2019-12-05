@@ -7,15 +7,19 @@ import ForgetPassword from '../screens/ForgetPasswordScreen';
 import PinCode from '../screens/PinCode';
 import ForgetPasswordSms from '../screens/ForgetPasswordSms';
 import ChangePassword from '../screens/ChangePassword';
+import RegisterScreen from './../screens/RegisterScreen';
+import ForgetPasswordScreen from './../screens/ForgetPasswordScreen';
 
 const screens = createStackNavigator(
   {
-    LoginScreen,
-    ChangePassword,
+    SplashScreen,
     ForgetPasswordSms,
+    ChangePassword,
+    ForgetPasswordScreen,
     PinCode,
-    ForgetPassword,
-    SplashScreen
+    RegisterScreen,
+    LoginScreen,
+    ForgetPassword
   },
   {
     defaultNavigationOptions: {

@@ -1,40 +1,39 @@
-import React from 'react'
-import {
-  Text,
-  View,
-  StyleSheet
-} from 'react-native'
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 
+import { theme } from '../constants';
 
-const Divider = (props) => {
+const Divider = ({ text }) => {
   return (
-    <View style={styles.dividerCont}>
-      <Text style={styles.orWith}>
-       {props.text}
-      </Text>
+    <View style={styles.dividerContainer}>
+      <View style={styles.dividerCont}></View>
+      <Text style={styles.middleText}>{text}</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Divider
-
+export default Divider;
 
 const styles = StyleSheet.create({
-  dividerCont: {
-    width: '50%',
-    borderBottomWidth: 2,
-    borderBottomColor: '#7B7A7A',
-    height: 1,
-    top: 555,
+  middleText: {
     position: 'absolute',
-  },
-  orWith: {
-    top: -22,
-    padding: 10,
-    position: 'absolute',
-    left: 55,
     fontSize: 18,
-    color: '#7B7A7A',
-    backgroundColor: '#FFF',
+    padding: 5,
+    color: theme.colors.bottomText,
+    backgroundColor: theme.colors.white
   },
-})
+  dividerCont: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '80%',
+    borderWidth: 1,
+    borderColor: theme.colors.bottomText,
+    borderBottomColor: theme.colors.bottomText
+  },
+  dividerContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: theme.sizes.base * 2
+  }
+});
