@@ -9,9 +9,11 @@ import ForgetPasswordSms from '../screens/ForgetPasswordSms';
 import ChangePassword from '../screens/ChangePassword';
 import RegisterScreen from './../screens/RegisterScreen';
 import ForgetPasswordScreen from './../screens/ForgetPasswordScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 const screens = createStackNavigator(
   {
+    HomeScreen,
     SplashScreen,
     ForgetPasswordSms,
     ChangePassword,

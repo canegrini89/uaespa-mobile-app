@@ -8,7 +8,8 @@ const colors = {
   gray: '#898989',
   blue: 'blue',
   lightBlue: 'lightBlue',
-  bottomText: 'gray'
+  bottomText: 'gray',
+  backgroud: '#F9F6F6',
 };
 
 const sizes = {
