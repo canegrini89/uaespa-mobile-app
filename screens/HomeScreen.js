@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 
 import {
   Image,
@@ -8,6 +9,7 @@ import {
 } from 'react-native';
 import Card from '../components/Card';
 import {theme} from '../constants';
+import { View, Text } from 'react-native';
 
 const HomeScreen = () => {
 
@@ -26,4 +28,3 @@ const styles = StyleSheet.create({
   },
 
 });
-

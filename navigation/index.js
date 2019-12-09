@@ -19,7 +19,6 @@ import ForgetPasswordSms from '../screens/ForgetPasswordSms';
 import ChangePassword from '../screens/ChangePassword';
 import RegisterScreen from './../screens/RegisterScreen';
 import ForgetPasswordScreen from './../screens/ForgetPasswordScreen';
-
 import HomeScreen from './../screens/HomeScreen';
 import SavedScreen from './../screens/SavedScreen';
 import LoadingScreen from './../screens/LoadingScreen';
