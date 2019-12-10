@@ -4,6 +4,13 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
+import { theme } from '../constants';
+import {
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons
+} from '@expo/vector-icons';
+
 import LoginScreen from '../screens/LoginScreen';
 import SplashScreen from '../screens/SplashScreen';
 import ForgetPassword from '../screens/ForgetPasswordScreen';
@@ -44,27 +51,53 @@ const AuthStackNavigator = createStackNavigator(
 const AppTabNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
-    navigationOptions: () => ({
-      tabBarIcon: <TabBarIcon />
-    })
+    navigationOptions: {
+      tabBarIcon: () => (
+        <FontAwesome name='home' size={30} color={theme.colors.tertiary} />
+      )
+    }
   },
   Saved: {
-    screen: SavedScreen
+    screen: SavedScreen,
+    navigationOptions: {
+      tabBarIcon: () => (
+        <Ionicons name='md-heart' size={30} color={theme.colors.tertiary} />
+      )
+    }
   },
   History: {
     screen: HistoryUpComing
   },
   Alert: {
-    screen: NotificationReadScreen
+    screen: NotificationReadScreen,
+    navigationOptions: {
+      tabBarIcon: () => (
+        <MaterialCommunityIcons
+          name='bell'
+          size={30}
+          color={theme.colors.tertiary}
+        />
+      )
+    }
   },
   Profile: {
-    screen: MyProfile
+    screen: MyProfile,
+    navigationOptions: {
+      tabBarIcon: () => (
+        <FontAwesome name='user' size={30} color={theme.colors.tertiary} />
+      )
+    }
   }
 });
 
 const AppStackNavigator = createStackNavigator({
   AppTabNavigator: {
-    screen: AppTabNavigator
+    screen: AppTabNavigator,
+    defaultNavigationOptions: {
+      //   headerStyle: () => (
+      //   )
+      // }
+    }
   }
 });
 
