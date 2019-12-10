@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6be63b8-4a46-43ef-b392-95e32859287f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/navigation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="d6be63b8-4a46-43ef-b392-95e32859287f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +12,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="48" />
-    <option name="y" value="3" />
+    <option name="x" value="47" />
+    <option name="y" value="2" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
@@ -72,7 +68,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="39" y="3" width="1400" height="776" extended-state="0" />
+    <frame x="38" y="2" width="1400" height="776" extended-state="1" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3294204" />

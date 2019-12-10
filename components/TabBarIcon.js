@@ -3,6 +3,8 @@ import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '../constants';
 
+import { FontAwesome } from '@expo/vector-icons';
+
 const TabBarIcon = ({ onPress }) => {
   const { primary, secondary, tertiary } = theme.colors;
   return (
@@ -13,7 +15,7 @@ const TabBarIcon = ({ onPress }) => {
         end={[1.0, 0.5]}
         style={styles.button}
       >
-        <Image source={'hola'} style={styles.image} />
+        <FontAwesome name='user' />
       </LinearGradient>
     </TouchableOpacity>
   );
