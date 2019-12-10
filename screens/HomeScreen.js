@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Image,
   StyleSheet,
@@ -25,3 +26,4 @@ const styles = StyleSheet.create({
   },
 
 });
+

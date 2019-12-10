@@ -31,6 +31,7 @@ const LoginScreen = ({ navigation }) => {
           <ButtonGradient
             colors={[primary, secondary, tertiary]}
             text='LOGIN'
+            onPress={() => navigation.navigate('Home')}
           />
         </View>
       </View>
