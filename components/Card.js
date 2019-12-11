@@ -3,8 +3,9 @@ import { Text, Image, View, StyleSheet } from 'react-native';
 import { theme } from '../constants';
 import { Rating } from 'react-native-ratings';
 import SmallButtonGradient from './SmallButtonGradient';
+import Banner from '../components/Banner';
 
-const Card = () => {
+const Card = props => {
 
   const ratingCompleted = rating => {
     console.log('rating' + rating)
@@ -12,13 +13,13 @@ const Card = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/twitter.png')} style={styles.logo} />
+      <Banner image={props.image} textOne={props.textOne} textTwo={props.textTwo} height='50%'/>
       <View style={styles.backCont}>
         <View style={styles.detailsCont}>
-          <Text style={styles.title}>Sun City Luxury Club & Spa</Text>
-          <Text style={styles.moreDetails}>International City, Dubai. <Text style={styles.fontColor}>150km</Text></Text>
-          <Text style={styles.moreDetails}>Phone: +92555555555</Text>
-          <Text style={styles.moreDetails}>WhatsApp: +9563132121321</Text>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.moreDetails}>{props.country}<Text style={styles.fontColor}>{props.km}</Text></Text>
+          <Text style={styles.moreDetails}>Phone: + ' ' +{props.phone}</Text>
+          <Text style={styles.moreDetails}>WhatsApp: + ' ' +{props.whatsapp}</Text>
           <View style={styles.rating}>
             <Rating
               type='custom'
@@ -28,7 +29,7 @@ const Card = () => {
               onFinishRating={ratingCompleted}
               style={{ paddingVertical: 8, paddingHorizontal: 3 }}
             />
-            <Text style={styles.ratingText}>45454 Ratings</Text>
+            <Text style={styles.ratingText}>{props.rating} + ' ' + Ratings</Text>
           </View>
         </View>
         <View style={styles.buttonCont}>
@@ -46,7 +47,10 @@ const Card = () => {
           </View>
         </View>
       </View>
-
+      <Image 
+        source={props.status === 'open' ? require('../assets/open.png') : require('../assets/close.png')}
+        style={styles.open}
+      />
     </View>
   );
 };
@@ -54,13 +58,19 @@ const Card = () => {
 export default Card;
 
 const styles = StyleSheet.create({
-  container: {
-    height: '70%',
+  container: { 
+    height: 320,
     marginVertical: 20,
     marginHorizontal: 12,
     borderRadius: 10,
     backgroundColor: theme.colors.white,
     elevation: 3,
+  },
+  open: {
+    height: 50, 
+    width: 70,
+    position: 'absolute',
+    right: 5
   },
   tag: {
     position: 'absolute',
@@ -78,12 +88,12 @@ const styles = StyleSheet.create({
     width: 200,
     textAlign: 'right',
     marginVertical: 3,
-    fontSize: 12,
+    fontSize: 10,
   },
   gradientCont: {
     alignItems: 'flex-end',
     justifyContent: 'space-around',
-    width: 125,
+    width: 115,
     height: 140,
     paddingHorizontal: 10,
     marginVertical: 12,
